@@ -177,14 +177,14 @@ Token scanToken() {
 
 	if(isAtEnd()) return makeToken(TOKEN_EOF);
 
-	char c = advance(c);
+	char c = advance();
 
 	if (isAlpha(c)) return identifier();
 	if (isDigit(c)) return number();
 	
 	switch (c) {
 		case '(': return makeToken(TOKEN_LEFT_PAREN);
-		case ')': return makeToken(TOKEN_LEFT_PAREN);
+		case ')': return makeToken(TOKEN_RIGHT_PAREN);
 		case '{': return makeToken(TOKEN_LEFT_BRACE);
 		case '}': return makeToken(TOKEN_RIGHT_BRACE);
 		case ';': return makeToken(TOKEN_SEMICOLON);
