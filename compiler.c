@@ -240,7 +240,7 @@ static void declareVariable() {
 	{
 		Local* local = &current->locals[i];
 
-		if (local-> depth != -1 & local->depth < current->scopeDepth) {
+		if (local-> depth != -1 && local->depth < current->scopeDepth) {
 			break;
 		}
 
