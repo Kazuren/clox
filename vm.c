@@ -165,6 +165,8 @@ static bool invoke(ObjString* name, int argCount) {
 		runtimeError("Only instances have methods.");
 		return false;
 	}
+	
+	ObjInstance* instance = AS_INSTANCE(receiver);
 
 	Value value;
 	if (tableGet(&instance->fields, name, &value)) {
@@ -172,7 +174,6 @@ static bool invoke(ObjString* name, int argCount) {
 		return callValue(value, argCount);
 	}
 
-	ObjInstance* instance = AS_INSTANCE(receiver);
 	return invokeFromClass(instance->klass, name, argCount);
 }
 
